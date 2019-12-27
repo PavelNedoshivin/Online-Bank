@@ -1,0 +1,91 @@
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2019-11-24 16:26:23
+  from 'C:\xampp\htdocs\mywebproject\templates\default\accounts.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5ddaa11fc6e803_85348121',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '70d60f262fce3527bb63c07fba49d2c3ecdcf84c' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\mywebproject\\templates\\default\\accounts.tpl',
+      1 => 1574608757,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5ddaa11fc6e803_85348121 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Accounts</h1>
+        <div class="content">
+            <table border="1" width="50%" cellpadding="5">
+                <tr>
+                    <td><b>id</b></td>
+                    <td><b>Balance</b></td>
+                    <td><b>OpeningDate</b></td>
+                    <td><b>CardsNumber</b></td>
+                    <td><b>Customer</b></td>
+                    <td><b>Employee</b></td>
+                    <td><b>Action</b></td>
+                </tr>
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['rows']->value, 'item');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+?>
+                    <tr>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['Balance'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['OpeningDate'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['CardsNumber'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['Customer'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['Employee'];?>
+</td>
+                        <td><form method="get">
+                            <input type="hidden" name='id' value="<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+">
+                            <button type="submit" name="command" value="deleteAccount">Delete</button>
+                        </form>
+                        </td>
+                    </tr>
+                <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            </table>
+        </div>
+        <h3>Add account</h3>
+
+        <form method="get">
+            <input type="text" name="account_balance">
+            <input type="text" name="account_openingdate">
+            <input type="text" name="account_cardsnumber">
+            <input type="text" name="account_customer">
+            <input type="text" name="account_employee">
+            <button type="submit" name="command" value="addAccount">Add account</button>
+        </form>
+
+        <form method="get" name="back">
+            <button type="submit" name="command" value="showMain">Back to main page</button>
+        </form>
+
+    </body>
+</html><?php }
+}
